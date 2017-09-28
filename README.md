@@ -2,12 +2,12 @@
 
 ## Prerequisitos
 
-###Equipo
+### Equipo
 
 * Memoria 8 GB o 12 GB si es Windows (para la virtualización)
 * Espacio en disco duro  16 GB (para las máquinas virtuales)
 
-###Software
+### Software
 
 Para ejecutar el ambiente de prueba se requiere de instalar los siguientes programas. 
 * Vagrant <https://www.vagrantup.com>
