@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>anuies</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Fiware</h1>
+
+<hr>
+
+<h2 id="toc_1">Información de contexto</h2>
+
+<p>Es el valor de el atributo que caracteriza una entidad en una aplicación. Esta información providene de diferentes fuentes y protocolos.</p>
+
+<h2 id="toc_2"><img src="images/00SC.png" alt=""></h2>
+
+<p><img src="images/00CB.jpg" alt=""></p>
+
+<h2 id="toc_3">Modelo NSGI</h2>
+
+<p>NSGI (Next Generation Service Interface Context Enabler) está basado en la definición de entidades y atributos. </p>
+
+<p><strong>Entidades</strong> son una representación virtual de todos los objetos físicos en el mundo.</p>
+
+<p>Cualquier información disponible sobre las entidades físicas expresadas en forma <strong>atributos</strong> de forma virtual.</p>
+
+<h2 id="toc_4">Orion Context Broker</h2>
+
+<p>Orion Context Broker (OCB) permite administrar todo el ciclo de vida completo de la información reelvante de acuerdo al ambiente. Estas facilidades van desde actualizaciones, consultas, registros y suscripciones. </p>
+
+<p>A través del OCB es posible registrar entidades de contexto y administrarlos a través de actualizaciones y consultas. Además, permite suscribirse a información de contexto para que cuando se produzca alguna condición (por ejemplo, un elemento de contexto se actualice) reciba una notificación. </p>
+
+<p>La siguiente figura muestra grosso modo el funcionamiento del OCB. Este es un intermediario entre los productores (dispositivos) y los consumidores (aplicaciones). 
+<img src="images/01-Orion.jpg" alt=""></p>
+
+<ul>
+<li>Los productores (estaciones) serán responsables de actualizar la información en la base de datos.</li>
+<li>Los consumidores realizarán consultas de acuerdo a las necesidades de las aplicaciones finales. Además de tener la posibilidad obtener noficaciones de una actualización particular. </li>
+</ul>
+
+<p>El formato de datos que utiliza el OCB es de tipo JSON</p>
+
+<h3 id="toc_5">JSON</h3>
+
+<p>El formato de datos JSON (Java Script Object Notation) es ligero para el intercambio de información, además es facil de leer así como de procesar.</p>
+
+<p>El formato de JSON utilizado es una colección de nombres y valores. Esto en varios lenguajes se identifica como un objeto, estructura, registro, diccionario, tabla hash, etc.</p>
+
+<div><pre><code class="language-javascript">    { &quot;entidad&quot;: atributo, &quot;entidad&quot;:atributo, ...}</code></pre></div>
+
+<!--
+* Una lista ordenada de valores ya sea como un arreglo, vector, lista o una secuencia.
+
+```
+    { atributo, atributo, ...}
+``` -->
+
+<p>Un Objeto JSON tienen las siguiente forma:</p>
+
+<p><img src="images/02-JSONObject.gif" alt="&quot;imagen tomada de JSON.org&quot;">
+Es decir, se encuentran definidos entre llaves. <em>String</em> será definido como las propiedades entidades. Los <em>value</em> son los atributos de tipo booleanos, otros objetos JSON, arreglos, números o nulo.</p>
+
+<p>Ejemplo:</p>
+
+<p>José tiene 30 años y cuenta con tres coches: VM, BMW y MB.</p>
+
+<div><pre><code class="language-javascript">    { 
+        &quot;nombre&quot;:&quot;José&quot;, 
+        &quot;edad&quot;:30, 
+        &quot;auto&quot;: 
+        {
+            &quot;auto1&quot;:&quot;VW&quot;,
+            &quot;auto2&quot;:&quot;BMW&quot;,
+            &quot;auto3&quot;:&quot;MB&quot;
+        }
+    }</code></pre></div>
+
+<p>No obstante, en Fiware, la API NGSI (<em>Next Generation Service Interface</em>) define:</p>
+
+<ul>
+<li>Un <strong>modelo de datos</strong> de información de contexto basado en la noción de <em>entidades de contexto</em></li>
+<li>Una <strong>interfaz de datos de contexto</strong> (<em>context data interface</em>) para intercambiar información mediante operaciones de consulta, suscripción y actualización</li>
+<li>Una interfaz de disponibilidad de contexto (<em>context availability interface</em>) para intercambiar información sobre cómo obtener información de contexto.</li>
+</ul>
+
+<!--
+Ejemplo de entidad de estacionamiento:
+
+```json
+    {
+        "type": "ParkingSpot",
+        "id": "lugar01",
+        "name": "A-01",
+        "floor": "Planta baja",
+        "status": "free",
+        "category": ["onstreet"],
+        "refParkingSite": "Universidad:EstacionamientoAlumnos"
+    }
+```
+* Type: Tipo de entidad que estamos almacenando en la BD.
+* id: Identificador único del lugar.
+* Status: occupied, free, closed, unknown.
+* category: onstreet, offstreet.
+*
+Esta información JSON es almacenada en una base de datos. EL OCB es encargado de acceder a la información. Para ello se utiliza consultas de tipo RESTful
+-->
+
+<h3 id="toc_6">Consultas (RESTful)</h3>
+
+<p>OCB realiza consultas (&quot;queries&quot;) a la base de datos que almacena en formato JSON. Las típicas consultas son insertar, actualizar, obtener borrar.
+OCB contiene una interfaz tipo web para realizar dichas consultas, el cual es un servicio web tipo REST (Representational state transfer). </p>
+
+<p>La forma de interactuar con este tipo de servicios web es atraves de URL, tipo de acción y un cuerpo con información de tipo JSON.</p>
+
+<p>Las operaciones comunes son:</p>
+
+<ul>
+<li>POST /v2/entitites</li>
+<li>GET /v2/entities </li>
+<li>GET /vs/entities/{entityID}</li>
+</ul>
+
+<p>Este tipo de servicios tiene la flexibilidad de obtener información de forma arborecente. Es decir, puedo obtener|actualizar|borrar información de una entidad completa o sólo valores de una entidad en especifico.</p>
+
+<h5 id="toc_7">POST</h5>
+
+<p>Empecemos por crear un nuevo folder en Insomnia (llamémoslo, por ejemplo, Operaciones-comunes) e introducir ahí una nueva solicitud para subir una entidad.  Llamémosla <em>put-entity</em>.</p>
+
+<p>Esta solicitud usará el comando POST. La estructura es:</p>
+
+<div><pre><code class="language-javascript">En el campo de URL se pone la dirección donde se encuentra el OCB
+Content-type/json
+
+Body:
+{
+        &quot;id&quot;: &quot;lugar01&quot;,
+        &quot;type&quot;: &quot;ParkingSpot&quot;,
+        &quot;name&quot; :{
+            &quot;value&quot;:&quot;A-13&quot;
+        },
+        &quot;floor&quot; :{
+            &quot;value&quot;:&quot;PB&quot;
+        },
+        &quot;status&quot; :{
+            &quot;value&quot;:&quot;free&quot;
+        },
+        &quot;category&quot; :{
+            &quot;value&quot;:&quot;onstreet&quot;
+        }
+    }</code></pre></div>
+
+<p>Es muy importante que el <strong>ID&amp;Type</strong> sea único. Es decir sólo puede exisitir un nombre de ID con un tipo de tipo, pero puede existir el mismo ID con distinto Tipo.</p>
+
+<p>Para los campos de atributos, muchas veces se puede inferir el tipo a partir del valor, pero es una buena práctica incluir el tipo de dato (type).</p>
+
+<h5 id="toc_8">GET</h5>
+
+<p>Hagamos una solicitud para leer las entidades.
+Podemos duplicar la consulta anterior y renombrarla, por ejemplo, como <em>get-all-entitires</em>.  </p>
+
+<p>Sólo se especifica el URL, sin body ni Content-type.  Por cierto, si se está consultando un OCB en la nube, se agrega en el campo X-Auth-Token el token que nos fue asignado:</p>
+
+<div><pre><code class="language-markup">    get url   http://localhost:1026/v2/entities
+    headers X-Auth-Token    1O11Qj4FReeHTs0Rb5hVLYwKNHFbbu</code></pre></div>
+
+<p>Para consultar una sola entidad, el URL se especifica con el ID:</p>
+
+<div><pre><code class="language-markup">    http://localhost:1026/v2/entities/{id}
+    #ejemplo
+    http://localhost:1026/v2/entities/lugar01</code></pre></div>
+
+<p>(De paso, se puede observar que se agregó automáticamente un tipo para cada valor.  En nuestro ejemplo, se dedujo que era string.  En cambio, en metadata lo dejó vacío).</p>
+
+<p>Para <strong>borrar</strong> una entidad, utilizamos el comando <strong>Delete</strong>:</p>
+
+<div><pre><code class="language-markup">    delete url /entities/{id}</code></pre></div>
+
+<h3 id="toc_9">Más operaciones</h3>
+
+<p>A partir de la versión 2 de NGSI es posible realizar operaciones con sólo un elemento ampliando el URL:</p>
+
+<div><pre><code class="language-none">    get url /v2/entities/{entityID}/attrs/{attrName}
+    put url /v2/entities/{entityID}/attrs/{attrName}
+    delete url /v2/entities/{entityID}/attrs/{attrName}
+    get url /v2/entities/{entityID}/attrs/{attrName}/value
+    put url /v2/entities/{entityID}/attrs/{attrName}/value</code></pre></div>
+
+<h3 id="toc_10">Actualización de valores</h3>
+
+<p>Si queremos actualizar valores, sólo es necesario especificar en el URL de qué entidad se trata y en el Body mandar el JSON con valores correspondientes:</p>
+
+<div><pre><code class="language-javascript">http://localhost:1026/v2/entities/lugar01
+Body:
+{
+    &quot;name&quot; :{
+        &quot;value&quot;:&quot;A03&quot;
+    },
+    &quot;floor&quot; :{
+        &quot;value&quot;:&quot;Pb&quot;
+    },
+    &quot;status&quot; :{
+        &quot;value&quot;:&quot;occupied&quot;
+    },
+    &quot;category&quot; :{
+        &quot;value&quot;:&quot;offstreet&quot;
+    }
+}</code></pre></div>
+
+<h3 id="toc_11">Metadatos</h3>
+
+<p>Los metadatos se agregan en la nueva versión de NGSI. Simplemente se pone información adicional con la misma estructura.  Por ejemplo, si se está manejando temperatura, se podría agregar algo así:</p>
+
+<div><pre><code class="language-none">{
+    &quot;id&quot;:&quot;lugar01&quot;,
+    &quot;type&quot;:&quot;ParkingSpot&quot;,
+    &quot;temperature&quot; :{
+        &quot;value&quot;:23,
+        &quot;metadata&quot;:{
+            “precision”: {
+                “type”:xxx,
+                “value”: xxx
+            }
+        }
+    ...</code></pre></div>
+
+<!--
+**Ejercicio** 
+
+1. Post. El ejercicio consiste en insertar una entidad tipo *lugar de estacionamiento* de acuerdo a la siguiente estructura:
+
+```bash
+    {
+        "id": "lugar01",
+        "type": "ParkingSpot",
+        "name" :{
+            "value":"A-13"
+        },
+        "floor" :{
+            "value":"PB"
+        },
+        "status" :{
+            "value":"free"
+        },
+        "category" :{
+            "value":"onstreet"
+        }
+    }
+```
+
+2. Gets:
+    * Obtener toda la entidad
+    * Obtener sólo los atributos
+    * Obtener sólo el valor
+3. Actualizar:
+    * Atributo
+    * Entidad
+4. Borrar:
+    * Un sólo atributo
+    * la entidad
+-->
+
+<h2 id="toc_12">Suscribir</h2>
+
+<h2 id="toc_13">OCB Query Language</h2>
+
+<p>Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con varias entidades. Se pueden agregar las entidades una a una con el método POST, pero también es posible enviar un conjunto de entidades especificando un APPEND con el URL update, de lo contrario se tendrían que realizar post por cada entidad insertada.</p>
+
+<div><pre><code class="language-javascript">{
+    &quot;actionType&quot;:&quot;APPEND&quot;,
+    &quot;entities&quot;:[
+    {
+        &quot;id&quot;: &quot;RH01&quot;,
+        &quot;type&quot;: &quot;ParkingSpot&quot;,
+        &quot;name&quot; :{
+            &quot;value&quot;:&quot;A-01&quot;
+        },
+        &quot;floor&quot; :{
+            &quot;value&quot;:&quot;PB&quot;
+        },
+        &quot;status&quot; :{
+            &quot;value&quot;:&quot;free&quot;
+        },
+        &quot;location&quot;: {
+    &quot;type&quot;: &quot;geo:point&quot;,
+    &quot;value&quot;: &quot;19.345565, -99.201024&quot;
+        }
+    },
+    {
+        &quot;id&quot;: &quot;RH02&quot;,
+        &quot;type&quot;: &quot;ParkingSpot&quot;,
+        &quot;name&quot; :{
+            &quot;value&quot;:&quot;A-02&quot;
+        },
+        &quot;floor&quot; :{
+            &quot;value&quot;:&quot;PB&quot;
+        },
+        &quot;status&quot; :{
+            &quot;value&quot;:&quot;occupied&quot;
+        },
+        &quot;location&quot;: {
+    &quot;type&quot;: &quot;geo:point&quot;,
+    &quot;value&quot;: &quot;19.345808, -99.200724&quot;
+        }
+    },
+    {
+        &quot;id&quot;: &quot;RH13&quot;,
+        &quot;type&quot;: &quot;ParkingSpot&quot;,
+        &quot;name&quot; :{
+            &quot;value&quot;:&quot;A-11&quot;
+        },
+        &quot;floor&quot; :{
+            &quot;value&quot;:&quot;PA&quot;
+        },
+        &quot;status&quot; :{
+            &quot;value&quot;:&quot;free&quot;
+        },
+        &quot;location&quot;: {
+    &quot;type&quot;: &quot;geo:point&quot;,
+    &quot;value&quot;: &quot;19.345565, -99.201024&quot;
+        }
+    },
+    {
+        &quot;id&quot;: &quot;MAR01&quot;,
+        &quot;type&quot;: &quot;ParkingSpot&quot;,
+        &quot;name&quot; :{
+            &quot;value&quot;:&quot;A-01&quot;
+        },
+        &quot;floor&quot; :{
+            &quot;value&quot;:&quot;PB&quot;
+        },
+        &quot;status&quot; :{
+            &quot;value&quot;:&quot;closed&quot;
+        },
+        &quot;location&quot;: {
+    &quot;type&quot;: &quot;geo:point&quot;,
+    &quot;value&quot;: &quot;19.343472, -99.202255&quot;
+        }
+    },
+    {
+        &quot;id&quot;: &quot;MAR02&quot;,
+        &quot;type&quot;: &quot;ParkingSpot&quot;,
+        &quot;name&quot; :{
+            &quot;value&quot;:&quot;A-02&quot;
+        },
+        &quot;floor&quot; :{
+            &quot;value&quot;:&quot;PB&quot;
+        },
+        &quot;status&quot; :{
+            &quot;value&quot;:&quot;closed&quot;
+        },
+        &quot;location&quot;: {
+    &quot;type&quot;: &quot;geo:point&quot;,
+    &quot;value&quot;: &quot;19.343237, -99.202272&quot;
+        }
+    },
+    {
+        &quot;id&quot;: &quot;MAR13&quot;,
+        &quot;type&quot;: &quot;ParkingSpot&quot;,
+        &quot;name&quot; :{
+            &quot;value&quot;:&quot;B-13&quot;
+        },
+        &quot;floor&quot; :{
+            &quot;value&quot;:&quot;PA&quot;
+        },
+        &quot;status&quot; :{
+            &quot;value&quot;:&quot;unknown&quot;
+        },
+        &quot;location&quot;: {
+    &quot;type&quot;: &quot;geo:point&quot;,
+    &quot;value&quot;: &quot;19.344222, -99.201104&quot;
+        }
+    },
+    {
+        &quot;id&quot;: &quot;ST01&quot;,
+        &quot;type&quot;: &quot;ParkingSpot&quot;,
+        &quot;name&quot; :{
+            &quot;value&quot;:&quot;A-01&quot;
+        },
+        &quot;floor&quot; :{
+            &quot;value&quot;:&quot;PB&quot;
+        },
+        &quot;status&quot; :{
+            &quot;value&quot;:&quot;closed&quot;
+        },
+        &quot;location&quot;: {
+    &quot;type&quot;: &quot;geo:point&quot;,
+    &quot;value&quot;: &quot;19.311161, -99.223256&quot;
+        }
+    },
+    {
+        &quot;id&quot;: &quot;ST02&quot;,
+        &quot;type&quot;: &quot;ParkingSpot&quot;,
+        &quot;name&quot; :{
+            &quot;value&quot;:&quot;A-02&quot;
+        },
+        &quot;floor&quot; :{
+            &quot;value&quot;:&quot;PB&quot;
+        },
+        &quot;status&quot; :{
+            &quot;value&quot;:&quot;closed&quot;
+        },
+        &quot;location&quot;: {
+    &quot;type&quot;: &quot;geo:point&quot;,
+    &quot;value&quot;: &quot;19.311145, -99.223310&quot;
+        }
+    },
+    {
+        &quot;id&quot;: &quot;ST13&quot;,
+        &quot;type&quot;: &quot;ParkingSpot&quot;,
+        &quot;name&quot; :{
+            &quot;value&quot;:&quot;A-11&quot;
+        },
+        &quot;floor&quot; :{
+            &quot;value&quot;:&quot;PA&quot;
+        },
+        &quot;status&quot; :{
+            &quot;value&quot;:&quot;unknown&quot;
+        },
+        &quot;location&quot;: {
+    &quot;type&quot;: &quot;geo:point&quot;,
+    &quot;value&quot;: &quot;19.311161, -99.223256&quot;
+        }
+    }
+    ]
+}</code></pre></div>
+
+<p>(Nota: FIWARE ya tiene un conjunto de metamodelos estandarizados, para no inventar el hilo negro.
+Buscar en Google FIWARE data models (<strong>fiware.org/data-models</strong>)
+Otra página muy importante es <strong>schema.org</strong>)</p>
+
+<p>Al realizar consultas, el OCB entrega únicamente 20 elementos por default. Si se desea traer más, se agrega el parámetro limit al query. (En insomnia, se tiene una ventana especial para agregar los parámetros del query).</p>
+
+<div><pre><code class="language-none">?limit=1</code></pre></div>
+
+<p>También se puede especificar el offset a partir del cual se leerán los valores.</p>
+
+<div><pre><code class="language-none">?oftset=5</code></pre></div>
+
+<p>Asimismo, si no deseamos recibir la información en formato NSGI, se puede especificar como opción keyValues como se muestra en el siguiente ejemplo:</p>
+
+<div><pre><code class="language-none">?options=keyValues  #quita el formato NSGI</code></pre></div>
+
+<p>Otro caso sería el obtener los lugares vacios, pero sólamente el nombre y el piso, y sin formato NSGI</p>
+
+<div><pre><code class="language-none">q           status==free
+attrs       name,floor
+options     keyValues</code></pre></div>
+
+<p>En los siguientes ejemplos se muestran consultas para un determinado tipo, para combinar varios identificadores, para elementos que coinciden con una expresión regular.</p>
+
+<div><pre><code class="language-none">?types=room
+idRooms1,Room2
+idPattern=^MAR[1][0-9]|RH[1][0-9]|ST[1][0-9]</code></pre></div>
+
+<h2 id="toc_14">Datos geo-referenciados</h2>
+
+<p>Los datos anteriormente utilizados anteriormente cuentan con el atributo <em>location</em> el cual cuenta con la ubicación geográfica de lugares de estacionamiento en la ciudad de México.</p>
+
+<p>Ahora vamos a buscar puntos dentro de una figura geométrica. Usaremos las API de la Versión 1, en la que se usan queries de contexto. Para especificar puntos fuera de una circunferencia, el método es POST y el body tiene lo siguiente:</p>
+
+<div><pre><code class="language-markup">POST localhost:1026/v1/queryContext
+
+{
+    &quot;entities&quot;: [
+        {
+            &quot;type&quot;: &quot;PointOfInterest&quot;,
+            &quot;isPattern&quot;: &quot;true&quot;,
+            &quot;id&quot;: &quot;.*&quot;
+        }
+    ],
+    &quot;attributes&quot;:[
+        &quot;location&quot;,&quot;name&quot;
+    ],
+    &quot;restriction&quot;: {
+        &quot;scopes&quot;: [
+            {
+                &quot;type&quot;: &quot;FIWARE::Location&quot;,
+                &quot;value&quot;: {
+                    &quot;circle&quot;: {
+                        &quot;centerLatitude&quot;: &quot;19.435513&quot;,
+                        &quot;centerLongitude&quot;: &quot;-99.141194&quot;,
+                        &quot;radius&quot;: &quot;170&quot;,
+                        &quot;inverted&quot;:&quot;false&quot;
+                    }
+                }
+            }
+        ]
+    }
+}</code></pre></div>
+
+<p>Se está buscando cualquier elemento (id *) de “ParkingSpot”. En la sección de atributos, recibiría todos; aquí se está indicando que sólo se quiere recuperar el nombre.  </p>
+
+<p>Las restricciones para la búsqueda son un círculo con cierto centro y radio (en metros).<br>
+Inverted: true significa que recupere todos los que no están dentro del círculo.</p>
+
+<p>Ahora hagamos un query de un polígono, el cual se forma así:</p>
+
+<div><pre><code class="language-none">{
+    &quot;entities&quot;: [
+        {
+            &quot;type&quot;: &quot;ParkingSpot&quot;,
+            &quot;isPattern&quot;: &quot;true&quot;,
+            &quot;id&quot;: &quot;.*&quot;
+        }
+    ],
+    &quot;attributes&quot;: [
+        &quot;location&quot;,
+        &quot;name&quot;
+    ],
+    &quot;restriction&quot;: {
+        &quot;scopes&quot;: [
+            {
+                &quot;type&quot;: &quot;FIWARE::Location&quot;,
+                &quot;value&quot;: {
+                    &quot;polygon&quot;: {
+                        &quot;vertices&quot;: [
+                            {
+                                &quot;latitude&quot;: &quot;19.345085&quot;,
+                                &quot;longitude&quot;: &quot;-99.201305&quot;
+                            },
+                            {
+                                &quot;latitude&quot;: &quot;19.344948&quot;,
+                                &quot;longitude&quot;: &quot;-99.200629&quot;
+                            },
+                            {
+                                &quot;latitude&quot;: &quot;19.345975&quot;,
+                                &quot;longitude&quot;: &quot;-99.200575&quot;
+                            },
+                            {
+                                &quot;latitude&quot;: &quot;19.346066&quot;,
+                                &quot;longitude&quot;: &quot;-99.201144&quot;
+                            }
+                        ],
+                        &quot;inverted&quot;: &quot;false&quot;
+                    }
+                }
+            }
+        ]
+    }
+}</code></pre></div>
+
+<p>El polígono se forma por un conjunto de vértices.  La figura debe ser cerrada.</p>
+
+<p>,</p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.markup={comment:/<!--[\w\W]*?-->/,prolog:/<\?[\w\W]+?\?>/,doctype:/<!DOCTYPE[\w\W]+?>/,cdata:/<!\[CDATA\[[\w\W]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=.$<]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\\1|\\?(?!\1)[\w\W])*\1|[^\s'">=]+))?)*\s*\/?>/i,inside:{tag:{pattern:/^<\/?[^\s>\/]+/i,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"attr-value":{pattern:/=(?:('|")[\w\W]*?(\1)|[^\s>]+)/i,inside:{punctuation:/[=>"']/}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:/&#?[\da-z]{1,8};/i},Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Prism.languages.xml=Prism.languages.markup,Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup;
+</script>
+
+<script type="text/javascript">
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\w\W]*?\*\//,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0}],string:{pattern:/(["'])(\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,lookbehind:!0,inside:{punctuation:/(\.|\\)/}},keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,"boolean":/\b(true|false)\b/,"function":/[a-z0-9_]+(?=\()/i,number:/\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i,operator:/--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};
+</script>
+
+<script type="text/javascript">
+Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/,number:/\b-?(0x[\dA-Fa-f]+|0b[01]+|0o[0-7]+|\d*\.?\d+([Ee][+-]?\d+)?|NaN|Infinity)\b/,"function":/[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*(?=\()/i}),Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/(^|[^\/])\/(?!\/)(\[.+?]|\\.|[^\/\\\r\n])+\/[gimyu]{0,5}(?=\s*($|[\r\n,.;})]))/,lookbehind:!0,greedy:!0}}),Prism.languages.insertBefore("javascript","class-name",{"template-string":{pattern:/`(?:\\\\|\\?[^\\])*?`/,greedy:!0,inside:{interpolation:{pattern:/\$\{[^}]+\}/,inside:{"interpolation-punctuation":{pattern:/^\$\{|\}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{script:{pattern:/(<script[\w\W]*?>)[\w\W]*?(?=<\/script>)/i,lookbehind:!0,inside:Prism.languages.javascript,alias:"language-javascript"}}),Prism.languages.js=Prism.languages.javascript;
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>
