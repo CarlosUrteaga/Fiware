@@ -1,6 +1,6 @@
 # Fiware
 ---
-##Información de contexto
+## Información de contexto
 Es el valor de el atributo que caracteriza una entidad en una aplicación. Esta información providene de diferentes fuentes y protocolos.
 
 ![](images/00SC.png)
