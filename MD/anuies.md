@@ -1,39 +1,61 @@
 # Fiware
----
+
 ## Información de contexto
-Es el valor de el atributo que caracteriza una entidad en una aplicación. Esta información providene de diferentes fuentes y protocolos.
+Es el valor del atributo que caracteriza una entidad en una aplicación. Esta información proviene de diferentes fuentes y protocolos.
 
 ![](images/00SC.png)
--- 
+
 ![](images/00CB.jpg)
+
 ## Modelo NSGI 
 NSGI (Next Generation Service Interface Context Enabler) está basado en la definición de entidades y atributos. 
 
-**Entidades** son una representación virtual de todos los objetos físicos en el mundo.
+**Entidades** son la representación virtual de todos los objetos físicos en el mundo.
 
-Cualquier información disponible sobre las entidades físicas expresadas en forma **atributos** de forma virtual.
+Cualquier información disponible sobre las entidades físicas son expresadas en forma de **atributos** de una manera virtual.
+
 ## Orion Context Broker
 
-Orion Context Broker (OCB) permite administrar todo el ciclo de vida completo de la información reelvante de acuerdo al ambiente. Estas facilidades van desde actualizaciones, consultas, registros y suscripciones. 
+Orion Context Broker (OCB) permite administrar todo el ciclo de vida de la información en el conjunto de Fiware.
 
-A través del OCB es posible registrar entidades de contexto y administrarlos a través de actualizaciones y consultas. Además, permite suscribirse a información de contexto para que cuando se produzca alguna condición (por ejemplo, un elemento de contexto se actualice) reciba una notificación. 
+A través del OCB es posible registrar entidades de contexto y administrarlos a través de actualizaciones y consultas. Además, permite suscribirse a la información de contexto para que cuando se produzca alguna modificación se reciba una notificación. 
 
-La siguiente figura muestra grosso modo el funcionamiento del OCB. Este es un intermediario entre los productores (dispositivos) y los consumidores (aplicaciones). 
+Para iniciar el servidor de OCB es necesario realizar los siguientes pasos
+##
+```	bash
+	# Utilizando la terminal. 
+	#### Set up
+	# crear carpeta
+	mkdir curso
+	# cambiar de directorio
+	cd curso
+	# bajar estructura de las máquinas virtuales
+	git clone https://github.com/CarlosUrteaga/Fiware.git
+	# Cambiar a directorio Fiware
+	cd Fiware
+	cd vm-fiware-orion
+	# iniciar máquina virtual de Orion
+	vagrant up
+	# conectar a máquina virutal por medio de SSH
+	vagrant ssh
+	#iniciar docker de OCB
+	docker-compose up
+```
+
+La siguiente figura muestra de forma general el funcionamiento del OCB. Este es un intermediario entre los productores (dispositivos) y los consumidores (aplicaciones). 
+
 ![](images/01-Orion.jpg)
 
-* Los productores (estaciones) serán responsables de actualizar la información en la base de datos.
-* Los consumidores realizarán consultas de acuerdo a las necesidades de las aplicaciones finales. Además de tener la posibilidad obtener noficaciones de una actualización particular. 
+* Los productores (estaciones) son responsables de actualizar la información en la base de datos.
+* Los consumidores realizan consultas  para obtener el estado actual. Además se tiene la posibilidad obtener notificaciones de atributos particulares.
 
-El formato de datos que utiliza el OCB es de tipo JSON
+El formato de datos que utiliza el OCB es de tipo JSON.
 ### JSON
 
-El formato de datos JSON (Java Script Object Notation) es ligero para el intercambio de información, además es facil de leer así como de procesar.
+El formato de datos JSON (Java Script Object Notation) es ligero para el intercambio de información, además de ser fácil de leer y de procesar.
 
-El formato de JSON utilizado es una colección de nombres y valores. Esto en varios lenguajes se identifica como un objeto, estructura, registro, diccionario, tabla hash, etc.
+El formato de JSON utilizado es una colección de nombres y valores. Estos valores pueden ser expresados como un objeto, estructura, registro, diccionario, tabla hash, etc.
 
-```json
-	{ "entidad": atributo, "entidad":atributo, ...}
-```	
 <!--
 * Una lista ordenada de valores ya sea como un arreglo, vector, lista o una secuencia.
 
@@ -43,30 +65,35 @@ El formato de JSON utilizado es una colección de nombres y valores. Esto en var
 Un Objeto JSON tienen las siguiente forma:
 
 !["imagen tomada de JSON.org"](images/02-JSONObject.gif)
-Es decir, se encuentran definidos entre llaves. *String* será definido como las propiedades entidades. Los *value* son los atributos de tipo booleanos, otros objetos JSON, arreglos, números o nulo.
+
+```json
+	{ "entidad": atributo, "entidad":atributo, ...}
+```	
+Es decir, se encuentran definidos entre llaves. *String* está definido como las propiedades de las entidades. *value* es el atributo de tipo booleano, objeto JSON, arreglo, número o nulo.
 
 Ejemplo:
 
-José tiene 30 años y cuenta con tres coches: VM, BMW y MB.
+José tiene 21 años y está cursando con tres materias: Física, Matemáticas y Economía.
 
 ```json
 	{ 
 		"nombre":"José", 
-		"edad":30, 
-		"auto": 
+		"edad":21, 
+		"Materias": 
 		{
-			"auto1":"VW",
-			"auto2":"BMW",
-			"auto3":"MB"
+			"Materias1":"Física",
+			"Materias2":"Matemáticas",
+			"Materias3":"Economía"
     	}
 	}
 ```
-No obstante, en Fiware, la API NGSI (*Next Generation Service Interface*) define:
+<!--
+No obstante, en Fiware, se utiliza el API NGSI (*Next Generation Service Interface*), el cual defin define:
 
 - Un **modelo de datos** de información de contexto basado en la noción de *entidades de contexto*
 - Una **interfaz de datos de contexto** (*context data interface*) para intercambiar información mediante operaciones de consulta, suscripción y actualización
 - Una interfaz de disponibilidad de contexto (*context availability interface*) para intercambiar información sobre cómo obtener información de contexto.
-
+-->
 <!--
 Ejemplo de entidad de estacionamiento:
 
@@ -89,112 +116,161 @@ Ejemplo de entidad de estacionamiento:
 Esta información JSON es almacenada en una base de datos. EL OCB es encargado de acceder a la información. Para ello se utiliza consultas de tipo RESTful
 -->
 ### Consultas (RESTful)
-OCB realiza consultas ("queries") a la base de datos que almacena en formato JSON. Las típicas consultas son insertar, actualizar, obtener borrar.
-OCB contiene una interfaz tipo web para realizar dichas consultas, el cual es un servicio web tipo REST (Representational state transfer). 
+OCB realiza consultas  a la base de datos. Las típicas consultas son insertar, modificar y obtener.
 
-La forma de interactuar con este tipo de servicios web es atraves de URL, tipo de acción y un cuerpo con información de tipo JSON.
+OCB contiene una interfaz tipo web para realizar dichas consultas. Este es un servicio web de tipo REST (REpresentational state Transfer). 
 
-Las operaciones comunes son:
+La forma de interactuar con este tipo de servicio web es a través de una URL, tipo de acción y un cuerpo con información.
 
-- POST /v2/entitites
-- GET /v2/entities 
-- GET /vs/entities/{entityID}
+Este tipo de servicios tiene la flexibilidad de obtener información de forma arborecente. Es decir, es posible obtener | actualizar | borrar información de una entidad completa o sólo valores de una entidad en especifico.
 
-Este tipo de servicios tiene la flexibilidad de obtener información de forma arborecente. Es decir, puedo obtener|actualizar|borrar información de una entidad completa o sólo valores de una entidad en especifico.
+### Ejercicio
+Los siguientes ejercicios serán realizados utilizando el programa Insomnia.
+
+Dentro de insomina se creará una carpeta con el nombre **Operaciones-Comunes**. 
 
 ##### POST
-Empecemos por crear un nuevo folder en Insomnia (llamémoslo, por ejemplo, Operaciones-comunes) e introducir ahí una nueva solicitud para subir una entidad.  Llamémosla *put-entity*.
-
-Esta solicitud usará el comando POST. La estructura es:
+Para generar una nueva petición que inserte una entidad en la base de datos se usará la operación *post*, el nombre sugerido es **inserta-entidad**.
 
 ```javascript
-En el campo de URL se pone la dirección donde se encuentra el OCB
-Content-type/json
+En el campo de URL se pone la dirección donde se encuentra el OCB 
+
+	post http://url:1026/v2/entities
+	
+```
+Ejemplo:
+
+```
+post: http://localhost:1026/v2/entities
+Header:
+	Content-type application/json
 
 Body:
-{
+	{
 		"id": "lugar01",
 		"type": "ParkingSpot",
+		"floor" :{
+			"value":"PB",
+			"type":"text"
+	    },
 		"name" :{
 			"value":"A-13"
 	    },
-		"floor" :{
-			"value":"PB"
-	    },
 		"status" :{
-			"value":"free"
-	    },
-		"category" :{
-			"value":"onstreet"
-		}
+			"value":"libre"
+	    }
 	}
 ```
-Es muy importante que el **ID&Type** sea único. Es decir sólo puede exisitir un nombre de ID con un tipo de tipo, pero puede existir el mismo ID con distinto Tipo.
+El **id**, representa el identificador del objeto mientras que **type** permite inferir el tipo atributo.
 
-Para los campos de atributos, muchas veces se puede inferir el tipo a partir del valor, pero es una buena práctica incluir el tipo de dato (type).
+Para cada **id** existen varios **Type**, es decir, puede existir varios objetos con el mismo **id** siempre y cuando sean de distinto tipo.
 
+Para los campos de atributos, muchas veces se puede inferir el tipo de acuerdo al valor, pero es una buena práctica incluir el tipo de dato (*type*).
 
 ##### GET
-Hagamos una solicitud para leer las entidades.
-Podemos duplicar la consulta anterior y renombrarla, por ejemplo, como *get-all-entitires*.  
+La operación utilizada para obtener información de la base de datos es el **get**. Es posible duplicar la consulta anterior y renombrarla, con el nombre **obten-todas-entidades**.  
 
-Sólo se especifica el URL, sin body ni Content-type.  Por cierto, si se está consultando un OCB en la nube, se agrega en el campo X-Auth-Token el token que nos fue asignado:
+Para este caso, sólo se especifica el URL, sin body ni Content-type. 
 
-```html
-    get url   http://localhost:1026/v2/entities
-	headers X-Auth-Token	1O11Qj4FReeHTs0Rb5hVLYwKNHFbbu
+```javascript
+	get http://{url}:1026/v2/entities
+```
+ejemplo:
+
+```javascript
+	get http://localhost:1026/v2/entities
 ```
 
-Para consultar una sola entidad, el URL se especifica con el ID:
 
-```html
-    http://localhost:1026/v2/entities/{id}
-    #ejemplo
-    http://localhost:1026/v2/entities/lugar01
+No obstante si se está consultando un OCB en la nube, será necesario agregar en el campo X-Auth-Token el token que les fue asignado.
+
+```javascript
+	get url   http://{url}:1026/v2/entities
+headers X-Auth-Token	1O11Qj4FReeHTs0Rb5hVLYwKNHFbbu
 ```
 
-(De paso, se puede observar que se agregó automáticamente un tipo para cada valor.  En nuestro ejemplo, se dedujo que era string.  En cambio, en metadata lo dejó vacío).
+Para consultar una sola entidad, el URL se especifica con el **id**.
 
-Para **borrar** una entidad, utilizamos el comando **Delete**:
+```javascript
+	get http://{url}:1026/v2/entities/{id}
+```
+ejemplo:
 
-```html
-    delete url /entities/{id}
+```javascript
+	get http://localhost:1026/v2/entities/lugar01
 ```
 
-###Más operaciones
+Esta consulta permite notar que la base de datos infiere el tipo datos insertados.
+
+##### Actualizar valores
+
+Es posible actualizar varios valores o uno solo. En el caso de varios valores se utiliza el formato JSON mientras que en el otro se utiliza el *type* del valor a insertar.
+
+```javascript
+	put http://{url}:1026/v2/entities/{id}
+	Header:
+	Body:
+```
+Ejemplo:
+
+```javascript
+	put http://localhost:1026/v2/entities/lugar01/attrs
+	Header
+		Content-type application/json
+Body:
+{
+    "name" :{
+		"value":"A15"
+    },
+	"floor" :{
+		"value":"PB"
+    },
+	"status" :{
+		"value":"ocupado"
+    }
+}
+```
+```javascript
+	put http://{url}:1026/v2/entities/{id}/attrs/{value}/value
+	Header:
+	Body:
+```
+Ejemplo:
+
+```javascript
+	put http://localhost:1026/v2/entities/lugar01/attrs/status/value
+	Header
+		Content-type text/plain
+Body:
+"free"
+```
+
+##### Delete
+Es posible borrar atributos e identidades.
+
+Para **borrar** un atributo se utiliza el comando **Delete**:
+
+```html
+    delete http://url:1026/v2/entities/{id}/attrs/{value}
+```
+
+Para **borrar** una se utiliza la siguiente expresión:
+
+```html
+    delete http://url:1026/v2/entities/{id}
+```
+<!--
+##### Más operaciones
 A partir de la versión 2 de NGSI es posible realizar operaciones con sólo un elemento ampliando el URL:
 
-```
+```javascript
 	get url /v2/entities/{entityID}/attrs/{attrName}
 	put url /v2/entities/{entityID}/attrs/{attrName}
 	delete url /v2/entities/{entityID}/attrs/{attrName}
 	get url /v2/entities/{entityID}/attrs/{attrName}/value
 	put url /v2/entities/{entityID}/attrs/{attrName}/value
 ```
-### Actualización de valores
-
- Si queremos actualizar valores, sólo es necesario especificar en el URL de qué entidad se trata y en el Body mandar el JSON con valores correspondientes:
-
-```json
-http://localhost:1026/v2/entities/lugar01
-Body:
-{
-    "name" :{
-		"value":"A03"
-    },
-	"floor" :{
-		"value":"Pb"
-    },
-	"status" :{
-		"value":"occupied"
-    },
-	"category" :{
-		"value":"offstreet"
-    }
-}
-```
-
-
+-->
 ### Metadatos
 Los metadatos se agregan en la nueva versión de NGSI. Simplemente se pone información adicional con la misma estructura.  Por ejemplo, si se está manejando temperatura, se podría agregar algo así:
 
@@ -215,7 +291,7 @@ Los metadatos se agregan en la nueva versión de NGSI. Simplemente se pone infor
 
 1. Post. El ejercicio consiste en insertar una entidad tipo *lugar de estacionamiento* de acuerdo a la siguiente estructura:
 
-```bash
+```json
 	{
 		"id": "lugar01",
 		"type": "ParkingSpot",
@@ -226,11 +302,8 @@ Los metadatos se agregan en la nueva versión de NGSI. Simplemente se pone infor
 			"value":"PB"
 	    },
 		"status" :{
-			"value":"free"
-	    },
-		"category" :{
-			"value":"onstreet"
-		}
+			"value":"libre"
+	    }
 	}
 ```
 
@@ -250,14 +323,14 @@ Los metadatos se agregan en la nueva versión de NGSI. Simplemente se pone infor
 
 ## OCB Query Language
 
-Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con varias entidades. Se pueden agregar las entidades una a una con el método POST, pero también es posible enviar un conjunto de entidades especificando un APPEND con el URL update, de lo contrario se tendrían que realizar post por cada entidad insertada.
+Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con varias entidades. Se pueden agregar las entidades una a una con el método POST, pero también es posible enviar un conjunto de entidades especificando un APPEND con el URL de update, de lo contrario se tendrían que realizar post por cada entidad insertada.
 
 ```json
 {
 	"actionType":"APPEND",
 	"entities":[
 	{
-		"id": "RH01",
+		"id": "CampusA01",
 		"type": "ParkingSpot",
 		"name" :{
 			"value":"A-01"
@@ -266,15 +339,11 @@ Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con 
 			"value":"PB"
 		},
 		"status" :{
-			"value":"free"
-		},
-		"location": {
-    "type": "geo:point",
-    "value": "19.345565, -99.201024"
+			"value":"libre"
 		}
 	},
 	{
-		"id": "RH02",
+		"id": "CampusA02",
 		"type": "ParkingSpot",
 		"name" :{
 			"value":"A-02"
@@ -283,15 +352,11 @@ Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con 
 			"value":"PB"
 		},
 		"status" :{
-			"value":"occupied"
-		},
-		"location": {
-    "type": "geo:point",
-    "value": "19.345808, -99.200724"
+			"value":"libre"
 		}
 	},
 	{
-		"id": "RH13",
+		"id": "CampusA13",
 		"type": "ParkingSpot",
 		"name" :{
 			"value":"A-11"
@@ -300,15 +365,11 @@ Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con 
 			"value":"PA"
 		},
 		"status" :{
-			"value":"free"
-		},
-		"location": {
-    "type": "geo:point",
-    "value": "19.345565, -99.201024"
+			"value":"libre"
 		}
 	},
 	{
-		"id": "MAR01",
+		"id": "CampusB01",
 		"type": "ParkingSpot",
 		"name" :{
 			"value":"A-01"
@@ -317,15 +378,11 @@ Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con 
 			"value":"PB"
 		},
 		"status" :{
-			"value":"closed"
-		},
-		"location": {
-    "type": "geo:point",
-    "value": "19.343472, -99.202255"
+			"value":"ocupado"
 		}
 	},
 	{
-		"id": "MAR02",
+		"id": "CampusB02",
 		"type": "ParkingSpot",
 		"name" :{
 			"value":"A-02"
@@ -334,15 +391,11 @@ Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con 
 			"value":"PB"
 		},
 		"status" :{
-			"value":"closed"
-		},
-		"location": {
-    "type": "geo:point",
-    "value": "19.343237, -99.202272"
+			"value":"ocupado"
 		}
 	},
 	{
-		"id": "MAR13",
+		"id": "CampusB13",
 		"type": "ParkingSpot",
 		"name" :{
 			"value":"B-13"
@@ -351,15 +404,11 @@ Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con 
 			"value":"PA"
 		},
 		"status" :{
-			"value":"unknown"
-		},
-		"location": {
-    "type": "geo:point",
-    "value": "19.344222, -99.201104"
+			"value":"desconocido"
 		}
 	},
 	{
-		"id": "ST01",
+		"id": "CampusC01",
 		"type": "ParkingSpot",
 		"name" :{
 			"value":"A-01"
@@ -368,15 +417,11 @@ Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con 
 			"value":"PB"
 		},
 		"status" :{
-			"value":"closed"
-		},
-		"location": {
-    "type": "geo:point",
-    "value": "19.311161, -99.223256"
+			"value":"ocupado"
 		}
 	},
 	{
-		"id": "ST02",
+		"id": "CampusC02",
 		"type": "ParkingSpot",
 		"name" :{
 			"value":"A-02"
@@ -385,70 +430,220 @@ Para practicar con algunos de los comandos de OCB, primero poblaremos la BD con 
 			"value":"PB"
 		},
 		"status" :{
-			"value":"closed"
-		},
-		"location": {
-    "type": "geo:point",
-    "value": "19.311145, -99.223310"
+			"value":"ocupado"
 		}
 	},
 	{
-		"id": "ST13",
+		"id": "CampusC13",
 		"type": "ParkingSpot",
 		"name" :{
-			"value":"A-11"
+			"value":"B-11"
 		},
 		"floor" :{
 			"value":"PA"
 		},
 		"status" :{
-			"value":"unknown"
-		},
-		"location": {
-    "type": "geo:point",
-    "value": "19.311161, -99.223256"
+			"value":"desconocido"
 		}
 	}
 	]
 }
+
 ```
-(Nota: FIWARE ya tiene un conjunto de metamodelos estandarizados, para no inventar el hilo negro.
-Buscar en Google FIWARE data models (**fiware.org/data-models**)
-Otra página muy importante es **schema.org**)
+<!--
+Nota: FIWARE ya tiene un conjunto de metamodelos estandarizados, para no inventar el hilo negro (**fiware.org/data-models**) o (**schema.org**)
+-->
+Al realizar consultas, el OCB entrega únicamente 20 elementos por defecto. Si se desea traer más, se agrega el parámetro limit al query. 
 
-Al realizar consultas, el OCB entrega únicamente 20 elementos por default. Si se desea traer más, se agrega el parámetro limit al query. (En insomnia, se tiene una ventana especial para agregar los parámetros del query).
-
-	?limit=1
+```
+En insomnia, se tiene una ventana especial para agregar los parámetros del query.
+	limit=1
+```
 
 También se puede especificar el offset a partir del cual se leerán los valores.
 
-	?oftset=5
+	oftset=5
 
 Asimismo, si no deseamos recibir la información en formato NSGI, se puede especificar como opción keyValues como se muestra en el siguiente ejemplo:
 
-	?options=keyValues  #quita el formato NSGI
+	options=keyValues  
+	
+Otro caso es el obtener los lugares vacios, pero sólamente el nombre y el piso, y sin formato NSGI
 
-Otro caso sería el obtener los lugares vacios, pero sólamente el nombre y el piso, y sin formato NSGI
-
-	q			status==free
-	attrs		name,floor
-	options		keyValues
+	q			status==desconocido
+	attrs		name,floor,status
+	options	keyValues
  
 En los siguientes ejemplos se muestran consultas para un determinado tipo, para combinar varios identificadores, para elementos que coinciden con una expresión regular.
 
-	?types=room
-	idRooms1,Room2
-	idPattern=^MAR[1][0-9]|RH[1][0-9]|ST[1][0-9]
-
+	?
+	attrs	name,floor
+	options	keyValues
+	idPattern	^Campus[A-C]
 
 
 ## Datos geo-referenciados
-Los datos anteriormente utilizados anteriormente cuentan con el atributo *location* el cual cuenta con la ubicación geográfica de lugares de estacionamiento en la ciudad de México.
+A una entidad puede tener el atributo de ubicación (*location*) para resolver los diferentes problemas.
 
-Ahora vamos a buscar puntos dentro de una figura geométrica. Usaremos las API de la Versión 1, en la que se usan queries de contexto. Para especificar puntos fuera de una circunferencia, el método es POST y el body tiene lo siguiente:
+* Lugares de interes
+* Servicios cercanos
+* Notificaciones
+
+Ejemplo
+Insertar lugares interés de la ciudad de México para mostrar la capacidad de geolocalizacíon en OCB.
+
+```json
+post http://localhost:1026/v2/op/update
+Body: json
+
+{
+  "actionType": "APPEND",
+	"entities": [
+		{
+			"id": "Catedral",
+			"type": "PointOfInterest",
+			"category": {
+				"type": "Text",
+				"value": "iglesia",
+				"metadata": {}
+			},
+			"location": {
+				"type": "geo:point",
+				"value": "19.435433, -99.133072",
+				"metadata": {}
+			},
+			"name": {
+				"type": "Text",
+				"value": "Catedral Metropolitana",
+				"metadata": {}
+			},
+			"postalAddress": {
+				"type": "StructuredValue",
+				"value": {
+					"addressCountry": "MX",
+					"addressLocality": "México Ciudad de México",
+					"addressRegion": "Ciudad de México"
+				}
+			}
+		 },
+       {
+			"id": "Zocalo",
+			"type": "PointOfInterest",
+			"category": {
+				"type": "Text",
+				"value": "Plaza",
+				"metadata": {}
+			},
+			"location": {
+				"type": "geo:point",
+				"value": "19.432579, -99.133287",
+				"metadata": {}
+			},
+			"name": {
+				"type": "Text",
+				"value": "Zocalo",
+				"metadata": {}
+			},
+			"postalAddress": {
+				"type": "StructuredValue",
+				"value": {
+					"addressCountry": "MX",
+					"addressLocality": "México Ciudad de México",
+					"addressRegion": "Ciudad de México"
+				}
+			}
+		},
+       {
+			"id": "PalacioNacional",
+			"type": "PointOfInterest",
+			"category": {
+				"type": "Text",
+				"value": "Edificio",
+				"metadata": {}
+			},
+			"location": {
+				"type": "geo:point",
+				"value": "19.432336, -99.131452",
+				"metadata": {}
+			},
+			"name": {
+				"type": "Text",
+				"value": "Palacio Nacional",
+				"metadata": {}
+			},
+			"postalAddress": {
+				"type": "StructuredValue",
+				"value": {
+					"addressCountry": "MX",
+					"addressLocality": "México Ciudad de México",
+					"addressRegion": "Ciudad de México"
+				}
+			}
+		},
+       {
+			"id": "BellasArtes",
+			"type": "PointOfInterest",
+			"category": {
+				"type": "Text",
+				"value": "Edificio",
+				"metadata": {}
+			},
+			"location": {
+				"type": "geo:point",
+				"value": "19.435180, -99.141207",
+				"metadata": {}
+			},
+			"name": {
+				"type": "Text",
+				"value": "Palacio de Bellas Artes",
+				"metadata": {}
+			},
+			"postalAddress": {
+				"type": "StructuredValue",
+				"value": {
+					"addressCountry": "MX",
+					"addressLocality": "México Ciudad de México",
+					"addressRegion": "Ciudad de México"
+				}
+			}
+		},
+       {
+			"id": "TorreLatino",
+			"type": "PointOfInterest",
+			"category": {
+				"type": "Text",
+				"value": "Edificio",
+				"metadata": {}
+			},
+			"location": {
+				"type": "geo:point",
+				"value": "19.433874, -99.140685",
+				"metadata": {}
+			},
+			"name": {
+				"type": "Text",
+				"value": "Torre Latino",
+				"metadata": {}
+			},
+			"postalAddress": {
+				"type": "StructuredValue",
+				"value": {
+					"addressCountry": "MX",
+					"addressLocality": "México Ciudad de México",
+					"addressRegion": "Ciudad de México"
+				}
+			}
+		}
+  ]
+}
+
+```
+
+Ahora vamos a buscar puntos dentro de una figura geométrica. 
+Para ello se utiliza la API V1, en la que se usan queries de contexto. Para especificar puntos fuera de una circunferencia, el método es POST y el body tiene lo siguiente:
 
 
-```html
+```javascript
 POST localhost:1026/v1/queryContext
 
 {
@@ -468,10 +663,10 @@ POST localhost:1026/v1/queryContext
                 "type": "FIWARE::Location",
                 "value": {
                     "circle": {
-                        "centerLatitude": "19.435513",
-                        "centerLongitude": "-99.141194",
-                        "radius": "170",
-						"inverted":"false"
+                        "centerLatitude": "19.432594",
+                        "centerLongitude": "-99.133017",
+                        "radius": "50",
+						"inverted":"true"
                     }
                 }
             }
@@ -480,25 +675,21 @@ POST localhost:1026/v1/queryContext
 }
 ```
 
-Se está buscando cualquier elemento (id *) de “ParkingSpot”. En la sección de atributos, recibiría todos; aquí se está indicando que sólo se quiere recuperar el nombre.  
+Las restricciones para la búsqueda es un círculo con el centro de acuerdo a coordenadas geográficas y radio  está expresado en metros. **Inverted: true** significa que recupera todos los que no están dentro del círculo.
 
-Las restricciones para la búsqueda son un círculo con cierto centro y radio (en metros).  
-Inverted: true significa que recupere todos los que no están dentro del círculo.
+Ahora hagamos un query de un polígono, el cual se de acuerdo a la siguiente consulta.
 
-Ahora hagamos un query de un polígono, el cual se forma así:
-
-```
+```javascript
 {
 	"entities": [
 		{
-			"type": "ParkingSpot",
+			"type": "PointOfInterest",
 			"isPattern": "true",
-			"id": ".*"
+            "id": ".*"
 		}
 	],
 	"attributes": [
-		"location",
-		"name"
+		"location"
 	],
 	"restriction": {
 		"scopes": [
@@ -508,20 +699,20 @@ Ahora hagamos un query de un polígono, el cual se forma así:
 					"polygon": {
 						"vertices": [
 							{
-								"latitude": "19.345085",
-								"longitude": "-99.201305"
+								"latitude": "19.432218",
+								"longitude": "-99.133836"
 							},
 							{
-								"latitude": "19.344948",
-								"longitude": "-99.200629"
+								"latitude": "19.431994",
+								"longitude": "-99.132480"
 							},
 							{
-								"latitude": "19.345975",
-								"longitude": "-99.200575"
+								"latitude": "19.433089",
+								"longitude": "-99.132380"
 							},
 							{
-								"latitude": "19.346066",
-								"longitude": "-99.201144"
+								"latitude": "19.433254",
+								"longitude": "-99.133841"
 							}
 						],
 						"inverted": "false"
@@ -532,6 +723,100 @@ Ahora hagamos un query de un polígono, el cual se forma así:
 	}
 }
 ```
-El polígono se forma por un conjunto de vértices.  La figura debe ser cerrada.
 
-,
+El polígono se forma por un conjunto de vértices.
+
+
+## Suscriptor
+
+La siguiente parte mostrará un ejemplo de suscriptor de un cuarto con temperatura.
+
+Insertar la siguiente estructura.
+
+```javascript
+http://localhost:1026/v2/entities
+
+{
+	"id":"Cuarto01",
+	"type":"Room",
+	"temperature": {
+		"value":"23"
+	},
+	"pressure":{
+		"value": 43
+	}
+}
+```
+Generar un método que actualice la temperatura
+
+```javascript
+put		http://localhost:1026/v2/entities/Cuarto01/attrs/temperature/value
+
+Header:
+	text/plain
+Body:
+	20.1
+```
+
+Generar suscriptor utilizando el método POST
+
+```javascript
+{
+	"description": "Update average rating",
+	"subject": {
+		"entities": [
+			{
+				"id": "Cuarto01",
+				"type": "Room"
+			}
+		],
+		"condition": {
+			"attrs": [
+				"id",
+				"temperature"
+			]
+		}
+	},
+	"notification": {
+		"httpCustom": {
+			"url": "http://192.168.83.2:8080/notifications",
+			"headers": {
+				"Content-Type": "text/plain"
+			},
+			"method": "POST",
+			"qs": {
+				"type": "${type}"
+			},
+			"payload": "La temperatura ${temperature} grados en ${id}"
+		},
+		"attrs": [
+			"id",
+			"temperature"
+		]
+	},
+	"expires": "2020-04-05T14:00:00.00Z",
+	"throttling": 1
+}
+
+```
+
+Iniciar máquina virtual de suscriptor
+
+```	bash
+	cd <path>/Fiware 
+	cd vm-fiware-consumer
+	# iniciar máquina virtual de Orion
+	vagrant up
+	# conectar a máquina virutal por medio de SSH
+	vagrant ssh
+	export JAVA_HOME=/opt/jdk1.8.0_144
+	
+	mvn -f fiware-orion-subscriber/pom.xml spring-boot:run
+
+```
+
+Realizar cambios en la variable y entrar a la siguiente página web
+
+```javascript
+192.168.83.2:80
+```
