@@ -1,5 +1,9 @@
-# Fiware
+# Orion Context broker
 
+
+Orion Context Broker (OCB) permite administrar todo el ciclo de vida de la información en el conjunto de Fiware.
+
+A través del OCB es posible registrar entidades de contexto y administrarlos a través de actualizaciones y consultas. Además, permite suscribirse a la información de contexto para que cuando se produzca alguna modificación se reciba una notificación. 
 ## Información de contexto
 Es el valor del atributo que caracteriza una entidad en una aplicación. Esta información proviene de diferentes fuentes y protocolos.
 
@@ -16,9 +20,6 @@ Cualquier información disponible sobre las entidades físicas son expresadas en
 
 ## Orion Context Broker
 
-Orion Context Broker (OCB) permite administrar todo el ciclo de vida de la información en el conjunto de Fiware.
-
-A través del OCB es posible registrar entidades de contexto y administrarlos a través de actualizaciones y consultas. Además, permite suscribirse a la información de contexto para que cuando se produzca alguna modificación se reciba una notificación. 
 
 Para iniciar el servidor de OCB es necesario realizar los siguientes pasos
 ##
@@ -680,6 +681,8 @@ Las restricciones para la búsqueda es un círculo con el centro de acuerdo a co
 Ahora hagamos un query de un polígono, el cual se de acuerdo a la siguiente consulta.
 
 ```javascript
+post http://localhost:1026/v2/op/update
+
 {
 	"entities": [
 		{
@@ -734,7 +737,7 @@ La siguiente parte mostrará un ejemplo de suscriptor de un cuarto con temperatu
 Insertar la siguiente estructura.
 
 ```javascript
-http://localhost:1026/v2/entities
+post http://localhost:1026/v2/entities
 
 {
 	"id":"Cuarto01",
